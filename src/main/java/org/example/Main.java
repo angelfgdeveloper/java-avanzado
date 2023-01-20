@@ -39,6 +39,21 @@ public class Main {
         AtomicInteger atomicInteger = new AtomicInteger(1); // Agrega un integer (tipo index) con valor inicial 0
         movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + ". " + m.getTitle() + " Visto: " + m.isViewed()));
 
+        // Filter con Stream
+        System.out.println("\n=======Movies Filters=======");
+
+        List<String> words = Arrays.asList("hello", null, "");
+        words.stream()
+                .filter(w -> w != null) // ["hello", ""]
+                .filter(w -> !w.isEmpty()) // ["hello"]
+                .forEach(System.out::println);
+
+        StringBuilder contentReport = new StringBuilder();
+        movies.stream()
+                .filter(m -> m.isViewed()) // filtra por los visto (true)
+                .forEach(m -> contentReport.append(m.toString() + "\n")); // concatenar
+
+        System.out.println("ContentReport: " + contentReport);
     }
 
     private static List<Movie> addMovies() {
