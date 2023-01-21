@@ -20,5 +20,12 @@ public class Main {
         onOneListener.onOne("Hola mundo desde mi primer FunctionalInterface");
         onOneListener1.onOne("Hola mundo desde mi segunda FunctionalInterface");
 
+        // CUERPO DE LAMBDA
+        // (parametros) -> { cuerpo-lambda }
+        // Listener listener = (parametros) -> { cuerpo-lambda }
+
+        OnOneListener onOneListener2 = message -> System.out.println("Con lambda reducida: " + message);
+        onOneListener2.onOne("Hola mundo desde mi tercera FunctionalInterface");
+
     }
 }
